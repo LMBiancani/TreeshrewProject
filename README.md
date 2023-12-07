@@ -2,8 +2,8 @@
 Scripts associated with the Treeshrew project
 
 ## 00. Run SISRS
-The [SISRS v2.1] (https://github.com/SchwartzLabURI/SISRS.git) pipeline is used to obtain putatively orthologous loci from raw genomic sequencing reads. <br>
-Required SISRS steps: 1, 2, 3, 4, 5, 6, 6b, 6c, 6d, 7, 7a, 7b <br>
+The [SISRS v2.1](https://github.com/SchwartzLabURI/SISRS.git) pipeline is used to obtain putatively orthologous loci from raw genomic sequencing reads. Required SISRS steps: 1, 2, 3, 4, 5, 6, 6b, 6c, 6d, 7, 7a, 7b
+
 After running SISRS, note paths to the following output items:
 * SISRS_Run directory
 
