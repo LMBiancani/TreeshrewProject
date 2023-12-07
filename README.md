@@ -1,8 +1,13 @@
 # TreeshrewProject
 Scripts associated with the Treeshrew project
 
-## Filter by taxa
-This step can be done after the next one, for example when loci are already aligned as part of the SISRS pipeline
+## 00. Run SISRS
+Putatively orthologous loci are obtained from raw genomic sequencing reads through the [SISRS v2.1 pipeline](https://github.com/SchwartzLabURI/SISRS.git)
+Required SISRS steps: 1, 2, 3, 4, 5, 6, 6b, 6c, 6d, 7, 7a, 7b
+After running SISRS, note paths to the following output items:
+* SISRS_Run directory
+
+## 01. Filter by taxa
 See **filterByTaxa** folder
 * filter_SISRS_output.sh - slurm script to run
 * filter_SISRS_output.py - script run by the previous shell script
@@ -14,13 +19,6 @@ group1,taxonName2
 group2,taxonName3
 group2,taxonName4
 ```
-
-
-## Align loci
-Obsolete scripts - SISRS now includes a step to align obtained loci
-See **alignmentTemp** folder
-* alignment_prep_script.sh - to prep the slurm array job
-* alignment_array_script.sh - to run the alignment array job
 
 ## Locus filtering using Branch Length Correlation
 This step can be used to filter out outlier loci based on discordance in branch length distribution. For use with this script a gene tree for each locus needs to be computed. See IQ-TREE analyses below, and iqtree_array_gtree.sh and iqtree_collect_gtrees.sh in particular. Output is a table with regression slope and R-squared, the latter can be used to rank and filter out loci with worst (lowest) values.
@@ -80,5 +78,4 @@ This step runs several assessments using IQ-TREE and several custom scripts. See
 
 This step runs a coalescent analysis using SVDQuartets. See **SVDQuartets** folder
 * run_svdq.sh - slurm script to run
-
 
