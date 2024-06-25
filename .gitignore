@@ -1,4 +1,5 @@
 SISRS
 SISRS_Run
-OUTFOLDER
+output
 slurm*
+logfile*
