@@ -1,4 +1,4 @@
-#!/bin/bash
+q#!/bin/bash
 #SBATCH --job-name="IQprep"
 #SBATCH --time=1:00:00  # walltime limit (HH:MM:SS)
 #SBATCH --mail-user="biancani@uri.edu" #CHANGE THIS to your user email address
