@@ -24,7 +24,7 @@ iqtree_exe="/data/schwartzlab/alex/andromeda_tools/iqtree-2.1.2-Linux/bin/iqtree
 CONSTRAINT=$PROJECT/SISRS_Run/RAxML_bestTree.alignment_pi_m25_nogap
 
 module purge
-#Andromeda (URI's cluster) specific
+## Andromeda (URI's cluster) specific:
 module load R/4.0.3-foss-2020b
 
 date
@@ -38,10 +38,17 @@ cat $array_work_folder/${fileline} | while read line
 do
         echo $line
         prefix=GeneTreesConstrained/inference_${line}
+        # Trim constraint tree (remove taxon missing from gene tree):
         Rscript ${scripts_dir}/trimConstraintTree.R ${aligned_loci_path}/${line} ${CONSTRAINT} ${prefix}.constraint.tre
         ${iqtree_exe} -nt 1 -s ${aligned_loci_path}/${line} -pre ${prefix} -alrt 1000 -m GTR+G -g ${prefix}.constraint.tre
-        mkdir -p GeneTreesConstrained/iqtree_files
+        mkdir -p GeneTreesConstrained/iqtree_files/
+        # Move iqtree output files to folder:
         mv ${prefix}.iqtree GeneTreesConstrained/iqtree_files/
-        rm -f ${prefix}.constraint.tre ${prefix}.ckp.gz ${prefix}.log ${prefix}.parstree ${prefix}.bionj ${prefix}.mldist ${prefix}.uniqueseq.phy
+        mkdir -p GeneTreesConstrained/TrimmedConstraintTrees
+        # Move Trimmed Constraint trees to folder:
+        mv ${prefix}.constraint.tre GeneTreesConstrained/TrimmedConstraintTrees/
+        mkdir -p GeneTreesConstrained/Individual_Constrained_GeneTrees
+        # Move constrained gene trees to folder:
+        mv ${prefix}.treefile GeneTreesConstrained/Individual_Constrained_GeneTrees
+        rm -f ${prefix}.ckp.gz ${prefix}.log ${prefix}.parstree ${prefix}.bionj ${prefix}.mldist ${prefix}.uniqueseq.phy
 done
-
