@@ -8,7 +8,7 @@
 
 ## UPDATE PATHS ...
 # path to TreeshrewProject Directory:
-PROJECT=/data/schwartzlab/Biancani/TreeshrewProject
+PROJECT=/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject
 # path to output folder (will be created if doesn't exist):
 OUTFOLDER=$PROJECT/output/FilteredByTaxa
 # path to SISRS_Run directory (contains SISRS output from step 00):

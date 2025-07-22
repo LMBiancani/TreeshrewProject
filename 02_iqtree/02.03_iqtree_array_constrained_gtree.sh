@@ -11,7 +11,7 @@
 
 ## UPDATE PATHS as needed...
 # path to TreeshrewProject Directory:
-PROJECT=/data/schwartzlab/Biancani/TreeshrewProject
+PROJECT=/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject
 # path to iqtree array work folder:
 array_work_folder=$PROJECT/output/iqtree_assessment
 # path to aligned, filtered loci:

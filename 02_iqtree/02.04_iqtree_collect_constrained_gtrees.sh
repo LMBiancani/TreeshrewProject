@@ -10,7 +10,7 @@
 
 ## UPDATE as needed...
 # path to Project Directory:
-PROJECT=/data/schwartzlab/Biancani/TreeshrewProject
+PROJECT=/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject
 # path to iqtree array work folder:
 array_work_folder=$PROJECT/output/iqtree_assessment
 # path to gene trees working folder:

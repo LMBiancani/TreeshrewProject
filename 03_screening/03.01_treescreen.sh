@@ -10,7 +10,7 @@
 
 ## UPDATE as needed...
 # path to Project Directory:
-PROJECT=/data/schwartzlab/Biancani/TreeshrewProject
+PROJECT=/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject
 # path to iqtree array work folder:
 array_work_folder=$PROJECT/output/iqtree_assessment
 # path to collected, trimmed, constraint trees:
@@ -20,7 +20,7 @@ genetree_path=$array_work_folder/GeneTreesConstrained/gtrees.tre
 # path to collected gene tree names:
 genetree_names=$array_work_folder/GeneTreesConstrained/gtrees.txt
 # path to R script:
-script_path=/data/schwartzlab/Biancani/TreeshrewProject/03_screening/treescreen.R
+script_path=/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject/03_screening/treescreen.R
 # path to output folder:
 output=$PROJECT/output/
 

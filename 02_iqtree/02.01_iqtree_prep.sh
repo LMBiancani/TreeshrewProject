@@ -10,7 +10,7 @@ q#!/bin/bash
 
 ## UPDATE PATHS as needed...
 # path to TreeshrewProject Directory:
-PROJECT=/data/schwartzlab/Biancani/TreeshrewProject
+PROJECT=/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject
 # path to IQtree scripts:
 scripts_dir=$PROJECT/02_iqtree
 # path to aligned, filtered loci:
