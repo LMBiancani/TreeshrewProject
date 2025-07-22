@@ -22,8 +22,13 @@ ConTrees=$array_work_folder/GeneTreesConstrained/TrimmedConstraintTrees
 
 cd $work_folder
 date
-> gtrees.txt; cat $array_work_folder/array_list.txt | while read line1; do cat $array_work_folder/${line1} >> gtrees.txt; done
-> gtrees.tre; cat gtrees.txt | while read line; do cat $GeneTrees/inference_${line}.treefile >> gtrees.tre; done
+# Generate a list of contigs:
+> contigs.txt; cat $array_work_folder/array_list.txt | while read line1; do cat $array_work_folder/${line1} >> contigs.txt; done
+# Copy contig list to gtrees.txt which will be edited (to remove entries for missing gene trees) to produce a list of gene tree names
+cp contigs.txt gtrees.txt
+# Iterate through list of contigs, if corresponding gene tree exists, append it to gtrees.tre, if it does not exist, remove the name from gtrees.txt
+> gtrees.tre; cat contigs.txt | while read line; do [ -f $GeneTrees/inference_${line}.treefile ] && cat $GeneTrees/inference_${line}.treefile >> gtrees.tre || sed -i "/^${line}$/d" gtrees.txt; done
+# Iterate through the (now edited) list of gene trees and append the corresponding constraint tree to constraint_trees.tre
 > constraint_trees.tre; cat gtrees.txt | while read line; do cat $ConTrees/inference_${line}.constraint.tre >> constraint_trees.tre; done
 date
 
