@@ -5,6 +5,7 @@
 #SBATCH --ntasks-per-node=1   # processor core(s) per node
 #SBATCH -c 1
 #SBATCH --mem-per-cpu=6G
+#SBATCH -p uri-cpu
 #SBATCH --mail-user="biancani@uri.edu" #CHANGE THIS to your user email address
 #SBATCH --mail-type=ALL
 #SBATCH --array=[1-260]%40
@@ -19,13 +20,15 @@ aligned_loci_path=$PROJECT/output/FilteredByTaxa
 # path to IQtree scripts:
 scripts_dir=$PROJECT/02_iqtree
 # path to IQtree executable:
-iqtree_exe="/data/schwartzlab/alex/andromeda_tools/iqtree-2.1.2-Linux/bin/iqtree2"
+iqtree_exe="/project/pi_rsschwartz_uri_edu/Biancani/Software/iqtree-2.1.2-Linux/bin/iqtree2"
 # path to constraint tree:
 CONSTRAINT=$PROJECT/SISRS_Run/RAxML_bestTree.alignment_pi_m25_nogap
 
+# export local space for R packages:
+export R_LIBS=~/R-packages
+
 module purge
-## Andromeda (URI's cluster) specific:
-module load R/4.0.3-foss-2020b
+module load r/4.4.0
 
 date
 cd $array_work_folder

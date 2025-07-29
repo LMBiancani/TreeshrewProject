@@ -1,3 +1,4 @@
+# package installed by 02.01_iqtree_prep.sh
 library (ape)
 args = commandArgs(trailingOnly=TRUE)
 argsLen <- length(args);

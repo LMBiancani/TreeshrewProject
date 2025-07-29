@@ -1,10 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name="IQout"
-#SBATCH --time=24:00:00  # walltime limit (HH:MM:SS)
+#SBATCH --time=48:00:00  # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
 #SBATCH --ntasks-per-node=1   # processor core(s) per node
 #SBATCH -c 1
 #SBATCH --mem-per-cpu=8G
+#SBATCH -p uri-cpu
 #SBATCH --mail-user="biancani@uri.edu" #CHANGE THIS to your user email address
 #SBATCH --mail-type=ALL
 
@@ -22,7 +23,7 @@ ConTrees=$array_work_folder/GeneTreesConstrained/TrimmedConstraintTrees
 
 cd $work_folder
 date
-# Generate a list of contigs:
+# Generate a list of contigs (contigs.txt contains names pulled from list of all contigs)
 > contigs.txt; cat $array_work_folder/array_list.txt | while read line1; do cat $array_work_folder/${line1} >> contigs.txt; done
 # Copy contig list to gtrees.txt which will be edited (to remove entries for missing gene trees) to produce a list of gene tree names
 cp contigs.txt gtrees.txt
@@ -31,4 +32,3 @@ cp contigs.txt gtrees.txt
 # Iterate through the (now edited) list of gene trees and append the corresponding constraint tree to constraint_trees.tre
 > constraint_trees.tre; cat gtrees.txt | while read line; do cat $ConTrees/inference_${line}.constraint.tre >> constraint_trees.tre; done
 date
-
