@@ -1,15 +1,20 @@
 #!/bin/bash
 #SBATCH --job-name="iqout"
-#SBATCH --time=24:00:00  # walltime limit (HH:MM:SS)
+#SBATCH --time=700:00:00  # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
 #SBATCH --ntasks-per-node=1   # processor core(s) per node
+#SBATCH -p uri-cpu
 #SBATCH -c 1
 #SBATCH --mem-per-cpu=8G
+#SBATCH --mail-user="yana_hrytsenko@uri.edu" #CHANGE THIS to your user email address
+#SBATCH --mail-type=ALL
+#SBATCH --output=/scratch3/workspace/yana_hrytsenko_uri_edu-shared/Projects/TreeshrewProject/09_iqtree/slurm_outs/step_7_outs/iqout_trsrw.out
 
 cd $SLURM_SUBMIT_DIR
 
-arrayLen=387
-assessment_folder="/home/aknyshov/alex_data/tree_shew_analysis/SISRS/post_processing/iqtree_phyloinference_treeshrew"
+arrayLen=6452 #number of lines in the array_list.txt)
+assessment_folder="/scratch3/workspace/yana_hrytsenko_uri_edu-shared/Projects/TreeshrewProject/09_iqtree/step3_concat_treeshrew_out_files"
+
 
 > combined_iqtree_dLnLs_concat.csv
 date

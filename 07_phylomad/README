@@ -1,0 +1,4 @@
+To submit phylomad_array.sh use sbatch --array=1-1000%40 /scratch3/workspace/yana_hrytsenko_uri_edu-shared/Projects/TreeshrewProject/07_phylomad/2_phylomad_array.sh
+Note: Total number of contig subsets is 6452 based on the /scratch3/workspace/yana_hrytsenko_uri_edu-shared/Projects/TreeshrewProject/SISRS/post_processing/phylomad_assessment/array_list.txt file
+
+Because the dataset is very large we submitted all the computations using slur array job and thus did not use the 3_phylomad_collect_output.sh script and instead we used 3_phylomad_collect_array.sh

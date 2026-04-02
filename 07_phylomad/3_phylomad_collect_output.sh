@@ -1,11 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name="PMout"
-#SBATCH --time=24:00:00  # walltime limit (HH:MM:SS)
+#SBATCH --time=100:00:00  # walltime limit (HH:MM:SS)
 #SBATCH --nodes=1   # number of nodes
 #SBATCH --ntasks-per-node=1   # processor core(s) per node
-#SBATCH -c 1
-#SBATCH --mem-per-cpu=8G
-
+#SBATCH --cpus-per-task=1
+#SBATCH -p uri-cpu
+#SBATCH --mem-per-cpu=10G
+#SBATCH --mail-user="yana_hrytsenko@uri.edu" #CHANGE THIS to your user email address
+#SBATCH --mail-type=ALL
 
 cd $SLURM_SUBMIT_DIR
 

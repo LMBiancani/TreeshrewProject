@@ -5,17 +5,16 @@ input <- list()
 ############################################
 
 # Path to the phylomad/codeFolder/
-phylomadpath <- "/home/aknyshov/alex_data/andromeda_tools/phylomad/codeFolder/"
+phylomadpath <- "/scratch3/workspace/yana_hrytsenko_uri_edu-shared/Projects/TreeshrewProject/PhyloMAd/phylomad/codeFolder/"
 
 # Type of model to assess. Must be one of "Substitutions" or "Clock"
 input$modeltotest <- "Substitutions"
 
 # Full paths to alignments. 
-input$dataPath <- c("/home/aknyshov/alex_data/tree_shew_analysis/SISRS/post_processing/phylomad_test/tes
-t.fas")
+input$dataPath <- c("/scratch/workspace/biancani_uri_edu-treeshrew/TreeshrewProject/SISRS_Run/aligned_contigs/SISRS_contig-56840000047.fasta")
 
 # Names of alignments.
-alNames <- c("test.fas")
+alNames <- c("SISRS_contig-56840000047.fasta")
 
 # Format of alignments. Options include "NEXUS", "phylip", and "FASTA"
 input$dataFormat <- "FASTA"
@@ -27,18 +26,15 @@ input$treesFormat <- "none"
 input$cleanOrNot <- F
 
 # The path of trees. When assessing clock models, this is the path for the .trees BEAST output file.
-input$treesPath <- c("")
+input$treesPath <- NA #removed quotes
 
-# For clock model assessment, the following is the path of .log BEAST output file. Ignore when assessing
- substitution models.
+# For clock model assessment, the following is the path of .log BEAST output file. Ignore when assessing substitution models.
 input$posteriorPath <- c("")
 
-# For clock model assessment, the following is the percentage of the posterior to be removed as burn-in.
- Ignore when assessing substitution models.
+# For clock model assessment, the following is the percentage of the posterior to be removed as burn-in. Ignore when assessing substitution models.
 input$burnin <- 0
 
-# Model to assess. Options include "GTR", "HKY", "JC", "autoModel", "JTT", "LG", "WAG", "Dayhoff". RAS m
-odel options include "", "+G". These options can be left blank when assesing clock models.
+# Model to assess. Options include "GTR", "HKY", "JC", "autoModel", "JTT", "LG", "WAG", "Dayhoff". RAS model options include "", "+G". These options can be left blank when assesing clock models.
 input$model <- "GTR"
 input$RASmodel <- "+G"
 
@@ -53,7 +49,7 @@ input$whatToOutput <- list("pvals", "testPlots")
 input$outputFormat <- "FASTA"
 
 # Output folder. If left "", output is saved to OutputFolder in the main PhyloMAd folder.
-input$outputFolder <- "/home/aknyshov/alex_data/tree_shew_analysis/SISRS/post_processing/phylomad_test/"
+input$outputFolder <- "/scratch3/workspace/yana_hrytsenko_uri_edu-shared/Projects/TreeshrewProject/SISRS/post_processing/phylomad_assessment/"
 
 # Number of simulations to make.
 input$Nsims <- 50
